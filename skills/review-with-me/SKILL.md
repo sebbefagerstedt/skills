@@ -1,79 +1,32 @@
 ---
 name: review-with-me
-description: Walk me through a large change one small piece at a time so I actually look at all of it before I ship or present it — code, docs, slides or anything written in my name. Use when I ask to review, go through, or sign off on a big change, or before I present or publish work an agent helped make. Do not use to write or fix the change itself.
+description: Walk me through a large change in tiny steps so I actually see all of it before I ship or present it — code, docs, slides or anything written in my name. Use when I ask to review or go through a big change, or before I present or publish agent-made work. Do not use to write or fix the change.
 ---
 
 # Review with me
 
-I tend to skim big changes, approve them, and regret it later: the result doesn't
-look how I wanted, or it says things I don't stand for. Your job is to make
-reviewing cheap enough that I really look at everything, and to make it obvious
-when I haven't.
+I skim big changes and regret it later. Make reviewing so short that I read
+everything. Don't edit during the review.
 
-Do not change the work during the review. Collect my decisions and apply them
-afterwards, or hand them back as a list if I'd rather do it myself.
+## Keep every message tiny
 
-## 1. Inventory everything first
+- At most 5 short lines per message. No intros, no recaps.
+- Quote only the phrase that matters, not whole paragraphs.
+- End with one question I can answer in one word.
 
-Find the full change: the diff against the base branch, the changed files, the
-document or deck, whatever I point at. If it's unclear what the change is, ask
-once.
+## Steps
 
-Show me a short inventory: how many files, sections or slides, and roughly how
-big each is. Nothing is reviewed yet. From here on, keep track of what I have
-and haven't seen.
-
-## 2. Sort it by how much it can hurt me
-
-Put each piece in one of these groups, and walk them in this order:
-
-1. **In my voice** — anything someone will read as my opinion or promise: claims,
-   numbers, recommendations, conclusions, commit messages, PR descriptions,
-   emails, slide text, docs, user-facing copy.
-2. **Decisions** — choices I never explicitly made: a new dependency, a changed
-   default, a removed feature, a naming or structure choice, a design direction,
-   anything a reasonable person would have done differently.
-3. **How it looks** — UI, layout, charts, formatting, tone.
-4. **Mechanical** — renames, moves, formatting, generated files. These can be
-   batched.
-
-## 3. Walk one piece at a time
-
-For each piece, keep it short:
-
-- **What changed**, in one or two sentences. Quote the exact text for anything
-  in my voice; don't paraphrase it.
-- **Why it might not be what I want** — the assumption it rests on, or what I
-  might push back on. If you see nothing, say so.
-- **One question** I can answer quickly, with your recommended answer:
-  keep, change (how), or drop.
-
-Wait for my answer before moving on. Group small related pieces together, but
-never more than I can read in about a minute.
-
-For **in my voice**, ask: "Would you say this, in these words, to the people who
-will read it?" Flag anything stronger than the evidence, anything I'd have to
-defend, and anything that sounds like someone other than me.
-
-For **how it looks**, show it rather than describe it when you can: render it,
-take a screenshot, or tell me exactly what to open and where to look.
-
-## 4. Don't let me skip silently
-
-If I say "looks fine, approve the rest" or similar, don't just stop. List what
-is still unseen, grouped as above, and ask me to confirm I'm skipping it. A
-conscious skip is fine; an accidental one is what this skill exists to prevent.
-Still insist on seeing every **in my voice** item, unless I explicitly say no a
-second time.
-
-## 5. Close out
-
-When everything has been seen or consciously skipped, give me:
-
-- **Changes to make** — every keep/change/drop decision that requires an edit.
-- **Skipped** — what I chose not to review.
-- **One-line summary in my words** — what this change does and why, as I would
-  say it to the audience. Ask me if it's right. If I can't agree with it, we are
-  not done.
-
-Then ask whether to apply the changes now.
+1. **Count it.** One line: "12 files, 3 slides of claims, 2 design choices."
+2. **Worst first.** Order: text in my voice (claims, numbers, promises), then
+   choices I never made, then how it looks, then mechanical stuff (batch it).
+3. **One piece per message:**
+   ```
+   [3/14] Slide 4 says: "cuts costs by 40%"
+   Risk: no source for 40%.
+   Keep / change / drop? (I'd change to "up to 40% in the pilot")
+   ```
+   For visuals, show a screenshot or say exactly what to open.
+4. **No silent skips.** If I say "approve the rest", list in one line what's
+   unseen and ask "Skip these?" Anything in my voice needs a second yes.
+5. **Finish** with: edits to make, what I skipped, and one sentence on what
+   this change says, in my words. Ask "Right?" then "Apply edits?"
